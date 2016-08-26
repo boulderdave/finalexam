@@ -15,7 +15,7 @@ class Question(models.Model):
     order = models.PositiveIntegerField(default=0)
     question = models.TextField()
     answer = models.CharField(max_length=100)
-    format = models.BooleanField(default=True, blank=False)
+    is_equation = models.BooleanField(default=True, blank=False)
 
     def __unicode__(self):
         return self.question
