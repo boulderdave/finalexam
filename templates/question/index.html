@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML"></script>
+  </head>
+<body>
+  <p>Level: {{ view.kwargs.level }}</p>
+  <form method="post" action="">
+      {% csrf_token %}
+      {% with form as formset %}
+        {{ formset.management_form }}
+        {% for form in formset %}
+            {{ form.errors }}
+            <p>Q{{forloop.counter}}: {% if form.instance.format %}`{% endif %}{{ form.instance.question }}{% if form.instance.format %}`{% endif %}</p>
+            <p>Answer: {{ form.answer }}</p>
+            {{ form.id }}
+            <br />
+        {% endfor %}
+      {% endwith %}
+      <input type="submit">
+  </form>
+</body>
+</html>
