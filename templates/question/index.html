@@ -10,7 +10,7 @@
         {{ formset.management_form }}
         {% for form in formset %}
             {{ form.errors }}
-            <p>Q{{forloop.counter}}: {% if form.instance.format %}`{% endif %}{{ form.instance.question }}{% if form.instance.format %}`{% endif %}</p>
+            <p>Q{{forloop.counter}}: {% if form.instance.is_equation %}`{% endif %}{{ form.instance.question }}{% if form.instance.is_equation %}`{% endif %}</p>
             <p>Answer: {{ form.answer }}</p>
             {{ form.id }}
             <br />
